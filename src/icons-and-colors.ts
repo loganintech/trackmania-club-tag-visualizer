@@ -8,8 +8,10 @@ export const FORMATTING_CODES = {
     RESET_COLOR: "$g",
     RESET_ALL: "$z",
     ESCAPE_DOLLARSIGN: "$$",
-    LINK: (url: string) => `$L[${url}]`,
 }
+
+export const FORMATTING_CODE_LINK = (url: string) => `$L[${url}]`
+
 
 export const PLATFORM_CODES = {
     PLAYSTATION: '',
