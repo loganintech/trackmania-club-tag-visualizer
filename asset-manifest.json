@@ -1,16 +1,13 @@
 {
   "files": {
-    "main.css": "/trackmania-club-tag-visualizer/static/css/main.073c9b0a.css",
-    "main.js": "/trackmania-club-tag-visualizer/static/js/main.bd32390d.js",
-    "static/js/787.477aa2bf.chunk.js": "/trackmania-club-tag-visualizer/static/js/787.477aa2bf.chunk.js",
-    "static/media/logo.svg": "/trackmania-club-tag-visualizer/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "main.css": "/trackmania-club-tag-visualizer/static/css/main.e6c13ad2.css",
+    "main.js": "/trackmania-club-tag-visualizer/static/js/main.320bc0b2.js",
     "index.html": "/trackmania-club-tag-visualizer/index.html",
-    "main.073c9b0a.css.map": "/trackmania-club-tag-visualizer/static/css/main.073c9b0a.css.map",
-    "main.bd32390d.js.map": "/trackmania-club-tag-visualizer/static/js/main.bd32390d.js.map",
-    "787.477aa2bf.chunk.js.map": "/trackmania-club-tag-visualizer/static/js/787.477aa2bf.chunk.js.map"
+    "main.e6c13ad2.css.map": "/trackmania-club-tag-visualizer/static/css/main.e6c13ad2.css.map",
+    "main.320bc0b2.js.map": "/trackmania-club-tag-visualizer/static/js/main.320bc0b2.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.bd32390d.js"
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.320bc0b2.js"
   ]
 }
