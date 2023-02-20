@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import {Button, Container, Grid, Paper, TextField} from "@mui/material";
+import ColorPicker from "material-ui-color-picker";
+import {twoCodeColorToOneCode} from "./icons-and-colors";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [color, setColor] = useState<string>("")
+    const [name, setName] = useState<string>("")
+
+    return (
+        <div className="App">
+            <Container>
+                <Paper>
+                    {/*<Grid></Grid>*/}
+                    <TextField id="text-1" value={name}/>
+                    <ColorPicker onChange={(newColor) => {
+                        if (!newColor) {
+                            return
+                        }
+
+                        const rawHex = newColor.substring(1)
+                        const r = twoCodeColorToOneCode(Number('0x' + rawHex.substring(0, 2))).toString(16).toUpperCase()
+                        const g = twoCodeColorToOneCode(Number('0x' + rawHex.substring(2, 4))).toString(16).toUpperCase()
+                        const b = twoCodeColorToOneCode(Number('0x' + rawHex.substring(4, 6))).toString(16).toUpperCase()
+
+                        setColor(`$${r}${g}${b}`)
+                    }}/>
+                    <Button onClick={
+                        () => {
+                            console.log("name", name)
+                            console.log("color", color)
+                            if (!color) {
+                                return
+                            }
+                            setName(name + color)
+                        }
+                    }>Add Color Format</Button>
+                </Paper>
+            </Container>
+        </div>
+    );
 }
 
 export default App;
