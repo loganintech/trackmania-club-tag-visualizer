@@ -2,6 +2,7 @@ import React, {useRef, useState} from 'react';
 import {Box, Button, Container, Grid, TextField} from "@mui/material";
 import {FORMATTING_CODES, PLATFORM_CODES, twoCodeColorToOneCode, UNICODE_ICONS} from "./icons-and-colors";
 import {Color, ColorResult, SketchPicker} from "react-color";
+import {RenderedText} from "./rendered";
 
 function App() {
     const [color, setColor] = useState<Color>()
@@ -15,6 +16,8 @@ function App() {
         inputVal.current.value += val
     }
 
+    const twoHexValToOneHex = (hex: string): string => twoCodeColorToOneCode(Number('0x' + hex)).toString(16).toUpperCase()
+
     return (
         <div className="App">
             <Container>
@@ -24,6 +27,13 @@ function App() {
                         <Grid item>
                             Paste in Trackmania: <TextField id="text-1" variant="standard" inputRef={inputVal}/>
                         </Grid>
+                        <Grid item>
+                            Rendered: { !!inputVal?.current?.value  ? <RenderedText input={inputVal.current.value}/> : null }
+                        </Grid>
+                    </Grid>
+
+                    <Grid item>
+                        Rendered 2: <RenderedText input={"aw$$$dawd$218zx$L[abcd]c$81Fz"}/>
                     </Grid>
 
                     <Grid item container justifyContent="center">
@@ -34,15 +44,13 @@ function App() {
 
                             const rawHex = newColor.hex.substring(1)
 
-                            const r = twoCodeColorToOneCode(Number('0x' + rawHex.substring(0, 2))).toString(16).toUpperCase()
-                            const g = twoCodeColorToOneCode(Number('0x' + rawHex.substring(2, 4))).toString(16).toUpperCase()
-                            const b = twoCodeColorToOneCode(Number('0x' + rawHex.substring(4, 6))).toString(16).toUpperCase()
-
+                            const r = twoHexValToOneHex(rawHex.substring(0, 2))
+                            const g = twoHexValToOneHex(rawHex.substring(2, 4))
+                            const b = twoHexValToOneHex(rawHex.substring(4, 6))
 
                             setColorHex(`$${r}${g}${b}`)
                             setColor(newColor.rgb)
                         }}/>
-
                             <Button variant="contained" onClick={
                                 () => {
                                     if (!colorHex || !inputVal?.current) {
